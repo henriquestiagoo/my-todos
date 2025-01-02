@@ -27,6 +27,12 @@ class TodosManager {
         return try context.fetch(descriptor)
     }
 
+    func getNotCompletedTodos() async throws -> [Todo] {
+        let predicate = #Predicate<Todo> { !$0.isCompleted }
+        let descriptor = FetchDescriptor(predicate: predicate)
+        return try context.fetch(descriptor)
+    }
+
     func insert(todo: Todo) async throws {
         context.insert(todo)
         try context.save()
@@ -34,6 +40,11 @@ class TodosManager {
 
     func remove(todo: Todo) async throws {
         context.delete(todo)
+        try context.save()
+    }
+
+    func markAsCompleted(todo: Todo) async throws {
+        todo.markAsCompleted()
         try context.save()
     }
 }

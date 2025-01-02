@@ -39,5 +39,14 @@ struct MyTodosShortcuts: AppShortcutsProvider {
             shortTitle: LocalizedStringResource(stringLiteral: "Remove an item from the todos list"),
             systemImageName: "minus.circle.fill"
         )
+
+        AppShortcut(
+            intent: MarkTodoAsCompletedIntent(),
+            phrases: [
+                "Update \(.applicationName) as completed"
+            ],
+            shortTitle: LocalizedStringResource(stringLiteral: "Mark an item as completed"),
+            systemImageName: "checkmark.circle.fill"
+        )
     }
 }

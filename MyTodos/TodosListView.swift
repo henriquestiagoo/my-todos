@@ -15,7 +15,7 @@ struct TodosListView: View {
 
     var body: some View {
         NavigationStack {
-            Group {
+            ZStack {
                 if todos.isEmpty {
                     ContentUnavailableView(
                         "Create your First Todo",
@@ -24,13 +24,23 @@ struct TodosListView: View {
 
                 } else {
                     List(todos) { todo in
-                        Text(todo.name)
-                            .swipeActions {
-                                Button("Delete", systemImage: "trash", role: .destructive) {
-                                    context.delete(todo)
+                        HStack {
+                            Image(systemName: todo.isCompleted ? "largecircle.fill.circle" : "circle")
+                                .resizable()
+                                .frame(width: 24, height: 24)
+                                .onTapGesture {
+                                    todo.toggleCompleted()
                                     try? context.save()
                                 }
+                            Text(todo.name)
+                                .opacity(todo.isCompleted ? 0.6 : 1)
+                        }
+                        .swipeActions {
+                            Button("Delete", systemImage: "trash", role: .destructive) {
+                                context.delete(todo)
+                                try? context.save()
                             }
+                        }
                     }
                 }
             }
@@ -54,5 +64,5 @@ struct TodosListView: View {
 }
 
 #Preview(traits: .mocks) {
-   TodosListView()
+    TodosListView()
 }
