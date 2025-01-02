@@ -1,5 +1,5 @@
 //
-//  MarkCompletedTodoIntent.swift
+//  MarkTodoAsCompletedIntent.swift
 //  MyTodos
 //
 //  Created by Tiago Henriques on 02/01/2025.
