@@ -16,11 +16,11 @@ struct TodoQuery: EntityQuery {
     @MainActor
     func suggestedEntities() async throws -> [TodoEntity] {
         let container = try! ModelContainer(for: Todo.self)
-        let sort = [SortDescriptor(\Todo.name)]
+        let sort = [SortDescriptor(\Todo.title)]
         let descriptor = FetchDescriptor<Todo>(sortBy: sort)
         let allTodos = try? container.mainContext.fetch(descriptor)
         let allEntities = allTodos?.map { todo in
-            TodoEntity(id: todo.name)
+            TodoEntity(id: todo.title)
         }
         return allEntities ?? []
     }

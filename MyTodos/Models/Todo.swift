@@ -11,16 +11,16 @@ import SwiftData
 @Model
 class Todo {
     var id: UUID
-    var name: String
+    var title: String
     var isCompleted: Bool
 
     init(
         id: UUID = UUID(),
-        name: String,
+        title: String,
         isCompleted: Bool = false
     ) {
         self.id = id
-        self.name = name
+        self.title = title
         self.isCompleted = isCompleted
     }
 
@@ -35,8 +35,8 @@ class Todo {
 
 extension Todo {
     static var mocks: [Todo] = [
-        Todo(name: "Implement Todos App", isCompleted: true),
-        Todo(name: "Introduced AppIntents", isCompleted: true),
-        Todo(name: "Write article")
+        Todo(title: "Implement Todos App", isCompleted: true),
+        Todo(title: "Introduced AppIntents", isCompleted: true),
+        Todo(title: "Write article")
     ]
 }

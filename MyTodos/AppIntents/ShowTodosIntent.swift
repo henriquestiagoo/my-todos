@@ -15,7 +15,7 @@ struct ShowTodosIntent: AppIntent {
         let todos = try await getTodos()
         let dialogMessage = todos.isEmpty
                     ? "Your todos list is empty."
-                    : "Here are your todos: \n\(todos.map(\.name).joined(separator: ", "))."
+                    : "Here are your todos: \n\(todos.map(\.title).joined(separator: ", "))."
         return .result(dialog: IntentDialog(stringLiteral: dialogMessage))
     }
 

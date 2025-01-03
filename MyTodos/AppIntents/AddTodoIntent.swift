@@ -11,19 +11,19 @@ struct AddTodoIntent: AppIntent {
     static var title: LocalizedStringResource = LocalizedStringResource(stringLiteral: "Add item to todos list")
     static var description: IntentDescription? = IntentDescription(stringLiteral: "Add an item to todos list")
 
-    @Parameter(title: "Todo name")
-    var todoName: String?
+    @Parameter(title: "Todo title")
+    var todoTitle: String?
 
     func perform() async throws -> some ProvidesDialog {
-        guard let todoName else {
+        guard let todoTitle else {
             let dialog = IntentDialog("What todo item you would like to add?")
-            throw $todoName.needsValueError(dialog)
+            throw $todoTitle.needsValueError(dialog)
         }
 
-        let newTodo = Todo(name: todoName)
+        let newTodo = Todo(title: todoTitle)
         do {
             try await insert(todo: newTodo)
-            let dialog = IntentDialog("'\(todoName)' is added to your todos list.")
+            let dialog = IntentDialog("'\(todoTitle)' was added to your todos list.")
             return .result(dialog: dialog)
         } catch {
             throw error

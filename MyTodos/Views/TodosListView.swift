@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct TodosListView: View {
-    @Query(sort: \Todo.name) var todos: [Todo]
+    @Query(sort: \Todo.title) var todos: [Todo]
     @Environment(\.modelContext) var context
     @State private var isNewTodoSheetPresented: Bool = false
 
@@ -32,7 +32,7 @@ struct TodosListView: View {
                                     todo.toggleCompleted()
                                     try? context.save()
                                 }
-                            Text(todo.name)
+                            Text(todo.title)
                                 .opacity(todo.isCompleted ? 0.6 : 1)
                         }
                         .swipeActions {

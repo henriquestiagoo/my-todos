@@ -16,13 +16,13 @@ class TodosManager {
     }
 
     func getTodos() async throws -> [Todo] {
-        let sort = [SortDescriptor(\Todo.name)]
+        let sort = [SortDescriptor(\Todo.title)]
         let descriptor = FetchDescriptor<Todo>(sortBy: sort)
         return try context.fetch(descriptor)
     }
 
-    func getTodos(with name: String) async throws -> [Todo] {
-        let predicate = #Predicate<Todo> { $0.name == name }
+    func getTodos(with title: String) async throws -> [Todo] {
+        let predicate = #Predicate<Todo> { $0.title == title }
         let descriptor = FetchDescriptor(predicate: predicate)
         return try context.fetch(descriptor)
     }

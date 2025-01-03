@@ -11,17 +11,6 @@ import SwiftData
 @main
 struct MyTodosApp: App {
 
-//    static var container: ModelContainer = {
-//       let schema = Schema([Todo.self])
-//       let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-//
-//       do {
-//           return try ModelContainer(for: schema, configurations: [modelConfiguration])
-//       } catch {
-//           fatalError("Could not create ModelContainer: \(error)")
-//       }
-//   }()
-
     static var container: ModelContainer = {
         try! ModelContainer(for: Todo.self)
     }()
