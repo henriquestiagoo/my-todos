@@ -6,7 +6,6 @@
 //
 
 import AppIntents
-import SwiftData
 
 struct MarkTodoAsCompletedIntent: AppIntent {
     static var title: LocalizedStringResource = LocalizedStringResource("Mark Todo as completed")

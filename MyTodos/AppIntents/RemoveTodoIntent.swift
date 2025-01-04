@@ -6,7 +6,6 @@
 //
 
 import AppIntents
-import SwiftData
 
 struct RemoveTodoIntent: AppIntent {
     static var title: LocalizedStringResource = LocalizedStringResource("Remove Todo")
