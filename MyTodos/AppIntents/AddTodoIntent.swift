@@ -14,7 +14,7 @@ struct AddTodoIntent: AppIntent {
     @Parameter(title: "Todo title")
     var todoTitle: String?
 
-    func perform() async throws -> some ProvidesDialog {
+    func perform() async throws -> some ShowsSnippetView {
         guard let todoTitle else {
             let dialog = IntentDialog("What todo item you would like to add?")
             throw $todoTitle.needsValueError(dialog)
@@ -23,8 +23,7 @@ struct AddTodoIntent: AppIntent {
         let newTodo = Todo(title: todoTitle)
         do {
             try await insert(todo: newTodo)
-            let dialog = IntentDialog("'\(todoTitle)' was added to your todos list.")
-            return .result(dialog: dialog)
+            return .result(view: TodoActionView(action: .add, title: todoTitle))
         } catch {
             throw error
         }

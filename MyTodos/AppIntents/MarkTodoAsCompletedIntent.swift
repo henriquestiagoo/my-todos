@@ -26,7 +26,7 @@ struct MarkTodoAsCompletedIntent: AppIntent {
             )
             // mark todo as completed
             try await markAsCompleted(title: entityToUpdate.id)
-            return .result(view: MarkTodoAsCompletedView(title: entityToUpdate.id))
+            return .result(view: TodoActionView(action: .markAsComplete, title: entityToUpdate.id))
         }
     }
 
