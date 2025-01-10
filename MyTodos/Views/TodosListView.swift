@@ -24,23 +24,13 @@ struct TodosListView: View {
 
                 } else {
                     List(todos) { todo in
-                        HStack {
-                            Image(systemName: todo.isCompleted ? "largecircle.fill.circle" : "circle")
-                                .resizable()
-                                .frame(width: 24, height: 24)
-                                .onTapGesture {
-                                    todo.toggleCompleted()
+                        TodoRowView(todo: todo)
+                            .swipeActions {
+                                Button("Delete", systemImage: "trash", role: .destructive) {
+                                    context.delete(todo)
                                     try? context.save()
                                 }
-                            Text(todo.title)
-                                .opacity(todo.isCompleted ? 0.6 : 1)
-                        }
-                        .swipeActions {
-                            Button("Delete", systemImage: "trash", role: .destructive) {
-                                context.delete(todo)
-                                try? context.save()
                             }
-                        }
                     }
                 }
             }

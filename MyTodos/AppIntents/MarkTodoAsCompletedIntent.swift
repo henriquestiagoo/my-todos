@@ -6,6 +6,7 @@
 //
 
 import AppIntents
+import SwiftUI
 
 struct MarkTodoAsCompletedIntent: AppIntent {
     static var title: LocalizedStringResource = LocalizedStringResource("Mark Todo as completed")
@@ -14,10 +15,10 @@ struct MarkTodoAsCompletedIntent: AppIntent {
     @Parameter(title: "Todo")
     var titleEntity: TodoEntity?
 
-    func perform() async throws -> some ProvidesDialog {
+    func perform() async throws -> some ShowsSnippetView {
         let suggestedEntities = try await suggestedEntities()
         if suggestedEntities.isEmpty {
-            return .result(dialog: "You don't have items to mark as completed.")
+            return await .result(view: TodosEmptyView())
         } else {
             let entityToUpdate = try await $titleEntity.requestDisambiguation(
                 among: suggestedEntities,
@@ -25,7 +26,7 @@ struct MarkTodoAsCompletedIntent: AppIntent {
             )
             // mark todo as completed
             try await markAsCompleted(title: entityToUpdate.id)
-            return .result(dialog: "Todo '\(entityToUpdate.id)' marked as completed.")
+            return .result(view: TodoActionView(action: .markAsComplete, title: entityToUpdate.id))
         }
     }
 

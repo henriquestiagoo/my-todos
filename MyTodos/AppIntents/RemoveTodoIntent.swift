@@ -14,10 +14,10 @@ struct RemoveTodoIntent: AppIntent {
     @Parameter(title: "Todo")
     var titleEntity: TodoEntity?
 
-    func perform() async throws -> some ProvidesDialog {
+    func perform() async throws -> some ShowsSnippetView {
         let suggestedEntities = try await suggestedEntities()
         if suggestedEntities.isEmpty {
-            return .result(dialog: "Your todos list is empty.")
+            return await .result(view: TodosEmptyView())
         } else {
             let entityToRemove = try await $titleEntity.requestDisambiguation(
                 among: suggestedEntities,
@@ -25,7 +25,7 @@ struct RemoveTodoIntent: AppIntent {
             )
             // remove todo
             try await removeTodo(title: entityToRemove.id)
-            return .result(dialog: "Removed '\(entityToRemove.id)' from the todos list.")
+            return .result(view: TodoActionView(action: .remove, title: entityToRemove.id) )
         }
     }
 
