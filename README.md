@@ -1,8 +1,8 @@
-# My To Dos App Intents 
+# My To-Dos App Intents 
 
 Hi! 👋
 
-This is the sample app for the article [Bringing App Intents to your SwiftUI App](https://www.youtube.com/playlist?list=PLBn01m5Vbs4BBJTDI-9akcqD7iMTZGI9W) on a My To Dos app including App Intents and Siri Shortcuts.
+This is the sample app for the article '[Bringing App Intents to your SwiftUI App](https://www.youtube.com/playlist?list=PLBn01m5Vbs4BBJTDI-9akcqD7iMTZGI9W)' on a to-dos app including App Intents and Siri Shortcuts.
 <br />
 
 
