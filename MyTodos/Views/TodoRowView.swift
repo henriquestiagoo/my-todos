@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct TodoRowView: View {
     @Environment(\.modelContext) var context
@@ -19,6 +20,8 @@ struct TodoRowView: View {
                 .onTapGesture {
                     todo.toggleCompleted()
                     try? context.save()
+                    // reload widgets
+                    WidgetCenter.shared.reloadAllTimelines()
                 }
             Text(todo.title)
                 .opacity(todo.isCompleted ? 0.6 : 1)

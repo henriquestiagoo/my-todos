@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import WidgetKit
 
 struct NewTodoView: View {
     @Environment(\.modelContext) var context
@@ -24,6 +25,8 @@ struct NewTodoView: View {
                     let newTodo = Todo(title: title)
                     context.insert(newTodo)
                     try? context.save()
+                    // reload widgets
+                    WidgetCenter.shared.reloadAllTimelines()
                     dismiss()
                 }
                 .buttonStyle(.bordered)

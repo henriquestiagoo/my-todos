@@ -6,19 +6,90 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A8B8F0CA2D315D18008F5EFC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8B8F0C92D315D17008F5EFC /* WidgetKit.framework */; };
+		A8B8F0CC2D315D18008F5EFC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8B8F0CB2D315D18008F5EFC /* SwiftUI.framework */; };
+		A8B8F0D72D315D1A008F5EFC /* MyTodosWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A8B8F0C72D315D17008F5EFC /* MyTodosWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A8B8F0D52D315D1A008F5EFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A8C667A72D22D7B8007C03D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A8B8F0C62D315D17008F5EFC;
+			remoteInfo = MyTodosWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A8B8F0DC2D315D1A008F5EFC /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A8B8F0D72D315D1A008F5EFC /* MyTodosWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		A8B8F0C72D315D17008F5EFC /* MyTodosWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MyTodosWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8B8F0C92D315D17008F5EFC /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		A8B8F0CB2D315D18008F5EFC /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		A8B8F0DD2D315D92008F5EFC /* MyTodosWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyTodosWidgetExtension.entitlements; sourceTree = "<group>"; };
 		A8C667AF2D22D7B8007C03D6 /* MyTodos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTodos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		A8B8F0D82D315D1A008F5EFC /* Exceptions for "MyTodosWidget" folder in "MyTodosWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = A8B8F0C62D315D17008F5EFC /* MyTodosWidgetExtension */;
+		};
+		A8B8F0E02D3160B3008F5EFC /* Exceptions for "MyTodos" folder in "MyTodosWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Shared/Models/Todo.swift,
+			);
+			target = A8B8F0C62D315D17008F5EFC /* MyTodosWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		A8B8F0CD2D315D18008F5EFC /* MyTodosWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				A8B8F0D82D315D1A008F5EFC /* Exceptions for "MyTodosWidget" folder in "MyTodosWidgetExtension" target */,
+			);
+			path = MyTodosWidget;
+			sourceTree = "<group>";
+		};
 		A8C667B12D22D7B8007C03D6 /* MyTodos */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				A8B8F0E02D3160B3008F5EFC /* Exceptions for "MyTodos" folder in "MyTodosWidgetExtension" target */,
+			);
 			path = MyTodos;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A8B8F0C42D315D17008F5EFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8B8F0CC2D315D18008F5EFC /* SwiftUI.framework in Frameworks */,
+				A8B8F0CA2D315D18008F5EFC /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A8C667AC2D22D7B8007C03D6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -29,10 +100,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A8B8F0C82D315D17008F5EFC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A8B8F0C92D315D17008F5EFC /* WidgetKit.framework */,
+				A8B8F0CB2D315D18008F5EFC /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A8C667A62D22D7B8007C03D6 = {
 			isa = PBXGroup;
 			children = (
+				A8B8F0DD2D315D92008F5EFC /* MyTodosWidgetExtension.entitlements */,
 				A8C667B12D22D7B8007C03D6 /* MyTodos */,
+				A8B8F0CD2D315D18008F5EFC /* MyTodosWidget */,
+				A8B8F0C82D315D17008F5EFC /* Frameworks */,
 				A8C667B02D22D7B8007C03D6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				A8C667AF2D22D7B8007C03D6 /* MyTodos.app */,
+				A8B8F0C72D315D17008F5EFC /* MyTodosWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,6 +132,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A8B8F0C62D315D17008F5EFC /* MyTodosWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A8B8F0D92D315D1A008F5EFC /* Build configuration list for PBXNativeTarget "MyTodosWidgetExtension" */;
+			buildPhases = (
+				A8B8F0C32D315D17008F5EFC /* Sources */,
+				A8B8F0C42D315D17008F5EFC /* Frameworks */,
+				A8B8F0C52D315D17008F5EFC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				A8B8F0CD2D315D18008F5EFC /* MyTodosWidget */,
+			);
+			name = MyTodosWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = MyTodosWidgetExtension;
+			productReference = A8B8F0C72D315D17008F5EFC /* MyTodosWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		A8C667AE2D22D7B8007C03D6 /* MyTodos */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A8C667BD2D22D7BA007C03D6 /* Build configuration list for PBXNativeTarget "MyTodos" */;
@@ -55,10 +161,12 @@
 				A8C667AB2D22D7B8007C03D6 /* Sources */,
 				A8C667AC2D22D7B8007C03D6 /* Frameworks */,
 				A8C667AD2D22D7B8007C03D6 /* Resources */,
+				A8B8F0DC2D315D1A008F5EFC /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A8B8F0D62D315D1A008F5EFC /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				A8C667B12D22D7B8007C03D6 /* MyTodos */,
@@ -80,6 +188,9 @@
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
+					A8B8F0C62D315D17008F5EFC = {
+						CreatedOnToolsVersion = 16.2;
+					};
 					A8C667AE2D22D7B8007C03D6 = {
 						CreatedOnToolsVersion = 16.2;
 					};
@@ -100,11 +211,19 @@
 			projectRoot = "";
 			targets = (
 				A8C667AE2D22D7B8007C03D6 /* MyTodos */,
+				A8B8F0C62D315D17008F5EFC /* MyTodosWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A8B8F0C52D315D17008F5EFC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A8C667AD2D22D7B8007C03D6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -115,6 +234,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A8B8F0C32D315D17008F5EFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A8C667AB2D22D7B8007C03D6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -124,7 +250,71 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		A8B8F0D62D315D1A008F5EFC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A8B8F0C62D315D17008F5EFC /* MyTodosWidgetExtension */;
+			targetProxy = A8B8F0D52D315D1A008F5EFC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		A8B8F0DA2D315D1A008F5EFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = MyTodosWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P82VY4LSH8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MyTodosWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MyTodosWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tiago.henriques.MyTodos.MyTodosWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A8B8F0DB2D315D1A008F5EFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = MyTodosWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P82VY4LSH8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MyTodosWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MyTodosWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tiago.henriques.MyTodos.MyTodosWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		A8C667BB2D22D7BA007C03D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -249,6 +439,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MyTodos/MyTodos.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MyTodos/Preview Content\"";
@@ -278,6 +469,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MyTodos/MyTodos.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MyTodos/Preview Content\"";
@@ -305,6 +497,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A8B8F0D92D315D1A008F5EFC /* Build configuration list for PBXNativeTarget "MyTodosWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8B8F0DA2D315D1A008F5EFC /* Debug */,
+				A8B8F0DB2D315D1A008F5EFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A8C667AA2D22D7B8007C03D6 /* Build configuration list for PBXProject "MyTodos" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

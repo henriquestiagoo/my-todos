@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import WidgetKit
 
 struct TodosListView: View {
     @Query(sort: \Todo.title) var todos: [Todo]
@@ -29,6 +30,8 @@ struct TodosListView: View {
                                 Button("Delete", systemImage: "trash", role: .destructive) {
                                     context.delete(todo)
                                     try? context.save()
+                                    // reload widgets
+                                    WidgetCenter.shared.reloadAllTimelines()
                                 }
                             }
                     }
