@@ -6,7 +6,6 @@
 //
 
 import AppIntents
-import SwiftData
 import WidgetKit
 
 struct ConfigurableUpdateIntent: AppIntent {
@@ -23,23 +22,18 @@ struct ConfigurableUpdateIntent: AppIntent {
     }
 
     func perform() async throws -> some IntentResult {
-        let update = await updateTodo(title: title)
+        let update = try await updateTodo(title: title)
         return .result(value: update)
     }
 
     @MainActor
-    func updateTodo(title: String) -> Bool {
-        let container = try! ModelContainer(for: Todo.self)
-        let predicate = #Predicate<Todo> { $0.title == title }
-        let descriptor = FetchDescriptor<Todo>(predicate: predicate)
-        let foundTodos = try? container.mainContext.fetch(descriptor)
-        if let todo = foundTodos?.first {
-            todo.toggleCompleted()
-            try? container.mainContext.save()
-            // reload widgets
-            WidgetCenter.shared.reloadAllTimelines()
-            return todo.isCompleted
-        }
-        return false
+    func updateTodo(title: String) async throws -> Bool {
+        let todosManager = TodosManager(context: Shared.container.mainContext)
+        let foundTodos = try await todosManager.getTodos(with: title)
+        guard let todo = foundTodos.first else { return false }
+        try? await todosManager.toggleCompleted(todo: todo)
+        // reload widgets
+        WidgetCenter.shared.reloadAllTimelines()
+        return todo.isCompleted
     }
 }

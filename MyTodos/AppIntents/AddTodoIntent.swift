@@ -31,7 +31,7 @@ struct AddTodoIntent: AppIntent {
 
     @MainActor
     func insert(todo: Todo) async throws {
-        let todosManager = TodosManager(context: MyTodosApp.container.mainContext)
+        let todosManager = TodosManager(context: Shared.container.mainContext)
         try await todosManager.insert(todo: todo)
     }
 }

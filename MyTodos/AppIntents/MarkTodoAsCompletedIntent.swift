@@ -32,7 +32,7 @@ struct MarkTodoAsCompletedIntent: AppIntent {
 
     @MainActor
     func markAsCompleted(title: String) async throws {
-        let todosManager = TodosManager(context: MyTodosApp.container.mainContext)
+        let todosManager = TodosManager(context: Shared.container.mainContext)
         let foundTodos = try await todosManager.getTodos(with: title)
         guard let todo = foundTodos.first else { return }
         try? await todosManager.markAsCompleted(todo: todo)
@@ -40,7 +40,7 @@ struct MarkTodoAsCompletedIntent: AppIntent {
 
     @MainActor
     func suggestedEntities() async throws -> [TodoEntity] {
-        let todosManager = TodosManager(context: MyTodosApp.container.mainContext)
+        let todosManager = TodosManager(context: Shared.container.mainContext)
         let allTodos = try await todosManager.getNotCompletedTodos()
         let allEntities = allTodos.map { todo in
             TodoEntity(id: todo.title)

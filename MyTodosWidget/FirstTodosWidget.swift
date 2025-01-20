@@ -6,14 +6,9 @@
 //
 
 import WidgetKit
-import SwiftData
 import SwiftUI
 
 struct Provider: TimelineProvider {
-    var container: ModelContainer = {
-        try! ModelContainer(for: Todo.self)
-    }()
-
     func placeholder(in context: Context) -> FirstTodosEntry {
         FirstTodosEntry(date: Date(), todos: [])
     }
@@ -38,11 +33,9 @@ struct Provider: TimelineProvider {
     }
 
     @MainActor
-    func getTodos() throws -> [Todo] {
-        let sort = [SortDescriptor(\Todo.title)]
-        let descriptor = FetchDescriptor<Todo>(sortBy: sort)
-        let allTodos = try? container.mainContext.fetch(descriptor)
-        return allTodos ?? []
+    func getTodos() async throws -> [Todo] {
+        let todosManager = TodosManager(context: Shared.container.mainContext)
+        return try await todosManager.getTodos()
     }
 }
 

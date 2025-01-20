@@ -55,6 +55,8 @@
 		A8B8F0E02D3160B3008F5EFC /* Exceptions for "MyTodos" folder in "MyTodosWidgetExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Shared/Managers/TodosManager.swift,
+				Shared/Models/Shared.swift,
 				Shared/Models/Todo.swift,
 			);
 			target = A8B8F0C62D315D17008F5EFC /* MyTodosWidgetExtension */;

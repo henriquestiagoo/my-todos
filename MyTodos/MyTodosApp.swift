@@ -6,14 +6,9 @@
 //
 
 import SwiftUI
-import SwiftData
 
 @main
 struct MyTodosApp: App {
-
-    static var container: ModelContainer = {
-        try! ModelContainer(for: Todo.self)
-    }()
 
     init() {
         // go and find all of the shortcuts that are required
@@ -24,6 +19,6 @@ struct MyTodosApp: App {
         WindowGroup {
             TodosListView()
         }
-        .modelContainer(Self.container)
+        .modelContainer(Shared.container)
     }
 }

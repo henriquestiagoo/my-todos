@@ -21,7 +21,7 @@ struct ShowTodosIntent: AppIntent {
 
     @MainActor
     func getTodos() async throws -> [Todo] {
-        let todosManager = TodosManager(context: MyTodosApp.container.mainContext)
+        let todosManager = TodosManager(context: Shared.container.mainContext)
         return try await todosManager.getTodos()
     }
 }

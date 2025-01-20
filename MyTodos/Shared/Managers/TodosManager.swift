@@ -47,4 +47,9 @@ class TodosManager {
         todo.markAsCompleted()
         try context.save()
     }
+
+    func toggleCompleted(todo: Todo) async throws {
+        todo.toggleCompleted()
+        try context.save()
+    }
 }
